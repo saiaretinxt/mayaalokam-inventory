@@ -101,12 +101,15 @@ input[type='number']::-webkit-outer-spin-button {
   }
 }
 
-.tooltip-header-wrapper{
+.tooltip-wrapper{
   color: $textColor;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: #1a1b23
 }
 
+
 .tooltip-description {
-  color: $textColor;
   padding-top: 5px;
 }
 
