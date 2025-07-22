@@ -442,7 +442,7 @@ button:active {
 .item-hotslot-header-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   width: 100%;
 }
@@ -455,138 +455,57 @@ button:active {
   width: 100%;
 }
 
-.item-slot-currency-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 6px;
-  margin-top: 4px;
-  
-  p {
-    font-size: 12px;
-    font-weight: 500;
-    color: #ffffff;
-  }
-}
-
-.item-slot-price-wrapper {
-  padding: 4px 8px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 6px;
-  margin-top: 4px;
-  
-  p {
-    font-size: 12px;
-    font-weight: 600;
-  }
-}
-
-// Context Menu Styling
-.context-menu-list {
-  min-width: 200px;
-  background: rgba(20, 21, 29, 0.98);
-  backdrop-filter: blur(20px);
-  color: $textColor;
-  padding: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  outline: none;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-}
-
-.context-menu-item {
-  padding: 12px 16px;
+// Inventory slot number styling
+.inventory-slot-number {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.9), rgba(90, 160, 242, 0.8));
+  color: #ffffff;
   border-radius: 8px;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  color: $textColor;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  font-weight: 500;
-  
-  &:active {
-    transform: none;
-  }
-  
-  &:hover {
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.15), rgba(90, 160, 242, 0.1));
-    cursor: pointer;
-    transform: translateX(2px);
-  }
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: $monoFont;
+  min-width: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  letter-spacing: 0.02em;
 }
 
-// Tooltip Styling
-.tooltip-wrapper {
-  pointer-events: none;
+// Item slot info wrapper improvements
+.item-slot-info-wrapper {
   display: flex;
-  background: rgba(20, 21, 29, 0.98);
-  backdrop-filter: blur(20px);
-  width: 240px;
-  padding: 16px;
   flex-direction: column;
-  min-width: 200px;
-  color: $textColor;
-  font-family: $primaryFont;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  align-items: flex-end;
+  gap: 2px;
   
   p {
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    line-height: 1.4;
-  }
-}
-
-.tooltip-header-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  
-  p {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
-    font-family: $headingFont;
-    letter-spacing: -0.01em;
-    color: #ffffff;
-  }
-}
-
-.tooltip-crafting-duration {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  svg {
-    padding-right: 3px;
-  }
-  p {
-    font-size: 14px;
-  }
-}
-
-.tooltip-ingredients {
-  padding-top: 5px;
-}
-
-.tooltip-ingredient {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  img {
-    width: 28px;
-    height: 28px;
-    padding-right: 5px;
+    font-family: $monoFont;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin: 0;
+    padding: 2px 6px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+    
+    &:first-child {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    &:last-child {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(74, 144, 226, 1);
+    }
   }
 }
 
@@ -613,6 +532,27 @@ button:active {
   @extend .inventory-slot;
   width: $gridSize;
   height: $gridSize;
+  
+  .inventory-slot-number {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 1), rgba(90, 160, 242, 0.9));
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 3px 12px rgba(74, 144, 226, 0.4);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 9px;
+    min-width: 24px;
+    animation: hotbarNumberPulse 2s ease-in-out infinite;
+  }
+}
+
+// Hotbar number animation
+@keyframes hotbarNumberPulse {
+  0%, 100% {
+    box-shadow: 0 3px 12px rgba(74, 144, 226, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(74, 144, 226, 0.6);
+  }
 }
 
 // Control Buttons
