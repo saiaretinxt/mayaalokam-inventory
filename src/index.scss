@@ -1,22 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+// Color Variables
 $mainColor: #1a1b23;
 $textColor: #e2e3e7;
-$mainFont: 'Roboto', sans-serif;
+$primaryFont: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$headingFont: 'Poppins', 'Inter', sans-serif;
+$monoFont: 'JetBrains Mono', 'Courier New', monospace;
 
-$secondaryColor: rgba(15, 15, 20, 0.5);
+$secondaryColor: rgba(15, 15, 20, 0.8);
 $secondaryColorHighlight: #2c2d3b;
 $secondaryColorDark: #0f0f14;
 $accentColor: #4a90e2;
+$accentColorHover: #5ba0f2;
 
+// Grid Configuration
 $gridCols: 5;
 $gridRows: 5;
 $gridSize: 10.2vh;
-$gridGap: 2px;
+$gridGap: 3px;
 $containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gridGap});
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: $primaryFont;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -40,7 +47,9 @@ code {
 p {
   margin: 0;
   padding: 0;
-  font-family: $mainFont;
+  font-family: $primaryFont;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 input[type='number']::-webkit-inner-spin-button,
@@ -54,27 +63,26 @@ input[type='number']::-webkit-outer-spin-button {
   height: 100%;
   width: 100%;
   color: white;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 27, 35, 0.9));
 }
 
 .context-menu-list {
   min-width: 200px;
-  background: rgba(26, 27, 35, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(20, 21, 29, 0.98);
+  backdrop-filter: blur(20px);
   color: $textColor;
-  padding: 4px;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
-  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
   outline: none;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .context-menu-item  {
-  padding: 8px;
-  border-radius: 4px;
+  padding: 12px 16px;
+  border-radius: 8px;
   background-color: transparent;
   outline: none;
   border: none;
@@ -82,13 +90,15 @@ input[type='number']::-webkit-outer-spin-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
   &:active {
     transform: none;
   }
   &:hover {
-    background-color: $accentColor;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.15), rgba(90, 160, 242, 0.1));
     cursor: pointer;
+    transform: translateX(2px);
   }
 }
 
@@ -124,8 +134,8 @@ button:active {
   justify-content: center;
   align-items: center;
   height: 100%;
-
-  gap: 20px;
+  gap: 25px;
+  padding: 20px;
 }
 
 .inventory-control {
@@ -143,33 +153,38 @@ button:active {
     transition: 200ms;
     padding: 16px 8px;
     border-radius: 2.5%;
-    font-family: $mainFont;
+    font-family: $monoFont;
     font-size: 16px;
+    font-weight: 500;
     text-align: center;
     outline: none;
     border: none;
     color: #fff;
-    background-color: $secondaryColor;
+    background-color: rgba(15, 15, 20, 0.7);
+    letter-spacing: 0.02em;
     &:focus-within {
-      background-color: $secondaryColorDark;
+      background-color: rgba(15, 15, 20, 0.9);
     }
   }
 
   .inventory-control-button {
     font-size: 14px;
     color: #fff;
-    background: linear-gradient(45deg, $secondaryColor, $secondaryColorHighlight);
-    transition: all 0.3s ease;
-    padding: 12px 8px;
-    border-radius: 2.5%;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.8), rgba(90, 160, 242, 0.9));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 12px 16px;
+    border-radius: 8px;
     border: none;
     text-transform: uppercase;
-    font-family: $mainFont;
+    font-family: $headingFont;
     width: 100%;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
     &:hover {
-      background: linear-gradient(45deg, $secondaryColorHighlight, $accentColor);
+      background: linear-gradient(135deg, rgba(90, 160, 242, 0.9), rgba(74, 144, 226, 1));
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
     }
   }
 }
@@ -199,6 +214,9 @@ button:active {
   justify-content: space-between;
   align-items: center;
   font-size: 18px;
+  font-family: $headingFont;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .useful-controls-dialog-close {
@@ -232,7 +250,7 @@ button:active {
   position: absolute !important;
   bottom: 25px;
   right: 25px;
-  transition: 200ms !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   border: none;
   color: white;
   width: 52px;
@@ -241,20 +259,16 @@ button:active {
   justify-content: center;
   align-items: center;
   fill: white;
-  border-radius: 5% !important;
-  background-color: $secondaryColor !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.8), rgba(90, 160, 242, 0.9)) !important;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+  
   &:hover {
-    background-color: $secondaryColorDark !important;
+    background: linear-gradient(135deg, rgba(90, 160, 242, 0.9), rgba(74, 144, 226, 1)) !important;
     cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
   }
-}
-
-.useful-controls-exit-button {
-  position: absolute !important;
-  right: 8px;
-  top: 8px;
-  border-radius: 2.5% !important;
-  color: grey !important;
 }
 
 // Dialog is used fro useful controls window
@@ -264,19 +278,37 @@ button:active {
 .inventory-grid-wrapper {
   display: flex;
   flex-direction: column;
-  gap: calc($gridGap * 2);
-  background: rgba(26, 27, 35, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  gap: calc($gridGap * 3);
+  background: rgba(20, 21, 29, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 
+              0 0 0 1px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  min-width: calc(#{$gridCols} * #{$gridSize} + #{$gridCols - 1} * #{$gridGap} + 40px);
 }
+
 .inventory-grid-header-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  
   p {
-    font-size: 16px;
+    font-size: 18px;
+    font-family: $headingFont;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    
+    &:first-child {
+      background: linear-gradient(135deg, #ffffff, #e2e3e7);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 }
 
@@ -284,48 +316,72 @@ button:active {
   display: grid;
   height: $containerSize;
   grid-template-columns: repeat($gridCols, $gridSize);
-  grid-auto-rows: $gridSize + 0.22vh;
+  grid-auto-rows: calc($gridSize + 0.22vh);
   gap: $gridGap;
-  overflow-y: scroll;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgba(8, 9, 15, 0.6);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
 }
 
-// inventory slots
+// Inventory Slots
 .inventory-slot {
-  background-color: $secondaryColor;
+  background: linear-gradient(135deg, rgba(25, 26, 34, 0.8), rgba(15, 16, 22, 0.9));
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 2.5%;
+  border-radius: 8px;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
   background-size: 7vh;
   color: $textColor;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
-  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
   
   &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-color: $accentColor;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(74, 144, 226, 0.3);
+    border-color: rgba(74, 144, 226, 0.5);
+    background: linear-gradient(135deg, rgba(30, 31, 39, 0.9), rgba(20, 21, 27, 1));
+  }
+  
+  &:active {
+    transform: translateY(-1px) scale(1.01);
   }
 }
 
 .inventory-slot-label-box {
-  background-color: $mainColor;
-  color: $textColor;
-  text-align: center;
-  border-bottom-left-radius: 0.25vh;
-  border-bottom-right-radius: 0.25vh;
-  border-top-color: rgba(0, 0, 0, 0.2);
-  border-top-style: inset;
-  border-top-width: 1px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.9));
+  backdrop-filter: blur(10px);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .inventory-slot-label-text {
@@ -333,21 +389,27 @@ button:active {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 2px 3px;
-  font-weight: 400;
-  font-family: $mainFont;
-  font-size: 12px;
+  padding: 6px 8px;
+  font-weight: 500;
+  font-family: $primaryFont;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .inventory-slot-number {
-  background-color: white;
-  color: black;
-  height: 12px;
-  border-top-left-radius: 0.25vh;
-  border-bottom-right-radius: 0.25vh;
-  padding: 3px;
-  font-size: 12px;
-  font-family: $mainFont;
+  background: linear-gradient(135deg, $accentColor, $accentColorHover);
+  color: white;
+  height: 16px;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: $monoFont;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
 }
 
 .item-slot-wrapper {
@@ -373,59 +435,79 @@ button:active {
 
 .item-slot-info-wrapper {
   display: flex;
-  flex-direction: row;
-  align-self: flex-end;
-  padding: 3px;
-  gap: 3px;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 6px;
+  gap: 2px;
+  
   p {
-    font-size: 12px;
+    font-size: 11px;
+    font-weight: 500;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.9);
   }
 }
 
-.item-slot-currency-wrapper {
+// Context Menu Styling
+.context-menu-list {
+  min-width: 200px;
+  background: rgba(20, 21, 29, 0.98);
+  backdrop-filter: blur(20px);
+  color: $textColor;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  outline: none;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  flex-direction: column;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.context-menu-item {
+  padding: 12px 16px;
+  border-radius: 8px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: $textColor;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-right: 3px;
-  p {
-    font-size: 14px;
-    text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  
+  &:active {
+    transform: none;
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.15), rgba(90, 160, 242, 0.1));
+    cursor: pointer;
+    transform: translateX(2px);
   }
 }
 
-.item-slot-price-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding-right: 3px;
-  p {
-    font-size: 14px;
-    text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
-  }
-}
-
-
+// Tooltip Styling
 .tooltip-wrapper {
   pointer-events: none;
   display: flex;
-  background: rgba(26, 27, 35, 0.95);
-  backdrop-filter: blur(5px);
-  width: 200px;
-  padding: 8px;
+  background: rgba(20, 21, 29, 0.98);
+  backdrop-filter: blur(20px);
+  width: 240px;
+  padding: 16px;
   flex-direction: column;
   min-width: 200px;
   color: $textColor;
-  font-family: $mainFont;
-  border-radius: 8px;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  font-family: $primaryFont;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  
   p {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
   }
 }
 
@@ -434,9 +516,14 @@ button:active {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 8px;
+  
   p {
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: $headingFont;
+    letter-spacing: -0.01em;
+    color: #ffffff;
   }
 }
 
@@ -472,15 +559,19 @@ button:active {
 .hotbar-container {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   justify-content: center;
-  width: 100%;
+  width: auto;
   position: absolute;
-  bottom: 2vh;
-  background: rgba(26, 27, 35, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  padding: 8px;
+  bottom: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 21, 29, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .hotbar-item-slot {
@@ -489,105 +580,29 @@ button:active {
   height: $gridSize;
 }
 
-.hotbar-slot-header-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-// item notifications
-
-.item-notification-container {
-  display: flex;
-  overflow-x: scroll;
-  flex-wrap: nowrap;
-  gap: 2px;
-  position: absolute;
-  bottom: 20vh;
-  left: 50%;
-  width: 100%;
-  margin-left: calc(50% - calc($gridSize/2));
-  transform: translate(-50%);
-}
-
-.item-notification-action-box {
-  width: 100%;
-  color: $textColor;
-  background-color: $secondaryColor;
+// Control Buttons
+.inventory-control-button {
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.8), rgba(90, 160, 242, 0.9));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
   text-transform: uppercase;
-  text-align: center;
-  border-top-left-radius: 0.25vh;
-  border-top-right-radius: 0.25vh;
-  font-family: $mainFont;
-  p {
-    font-size: 11px;
-    padding: 2px;
-    font-weight: 600;
-  }
-}
-
-.item-notification-item-box {
-  @extend .inventory-slot;
-  height: $gridSize;
-  width: $gridSize;
-}
-
-.durability-bar {
-  background: rgba(0, 0, 0, 0.5);
-  height: 3px;
-  overflow: hidden;
-  border-radius: 4px;
+  font-family: $headingFont;
+  width: 100%;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
   
-  div {
-    transition: width 0.3s ease, background-color 0.3s ease;
+  &:hover {
+    background: linear-gradient(135deg, rgba(90, 160, 242, 0.9), rgba(74, 144, 226, 1));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
   }
-}
-
-.weight-bar {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px inset rgba(0, 0, 0, 0.1);
-  height: 0.8vh;
-  border-radius: 5%;
-  overflow: hidden;
-  border-radius: 4px;
   
-  div {
-    transition: width 0.3s ease, background-color 0.3s ease;
+  &:active {
+    transform: translateY(0);
   }
-}
-
-.transition-fade-enter {
-  opacity: 0;
-}
-
-.transition-fade-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
-}
-
-.transition-fade-exit {
-  opacity: 1;
-}
-
-.transition-fade-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
-}
-
-.transition-slide-up-enter {
-  transform: translateY(200px)
-}
-
-.transition-slide-up-enter-active {
-  transform: translateY(0px);
-  transition: all 200ms;
-}
-
-.transition-slide-up-exit {
-  transform: translateY(0px);
-}
-
-.transition-slide-up-exit-active {
-  transform: translateY(200px);
-  transition: all 200ms;
 }
