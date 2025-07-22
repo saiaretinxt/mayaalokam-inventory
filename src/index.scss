@@ -1,11 +1,11 @@
-$mainColor: #22232c;
-$textColor: #c1c2c5;
-$mainFont: Roboto;
+$mainColor: #1a1b23;
+$textColor: #e2e3e7;
+$mainFont: 'Roboto', sans-serif;
 
-$secondaryColor: rgba(12, 12, 12, 0.4);
-$secondaryColorHighlight: #33343F;
-$secondaryColorLight: rgba(0, 0, 0, 0.5);
-$secondaryColorDark: rgba(12, 12, 12, 0.8);
+$secondaryColor: rgba(15, 15, 20, 0.5);
+$secondaryColorHighlight: #2c2d3b;
+$secondaryColorDark: #0f0f14;
+$accentColor: #4a90e2;
 
 $gridCols: 5;
 $gridRows: 5;
@@ -58,16 +58,18 @@ input[type='number']::-webkit-outer-spin-button {
 
 .context-menu-list {
   min-width: 200px;
-  background-color: $mainColor;
+  background: rgba(26, 27, 35, 0.95);
+  backdrop-filter: blur(10px);
   color: $textColor;
   padding: 4px;
   border-color: rgba(0, 0, 0, 0.2);
   border-style: inset;
   border-width: 1px;
-  border-radius: 4px;
+  border-radius: 8px;
   outline: none;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .context-menu-item  {
@@ -80,11 +82,12 @@ input[type='number']::-webkit-outer-spin-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background-color 0.2s ease;
   &:active {
     transform: none;
   }
   &:hover {
-    background-color: $secondaryColorHighlight;
+    background-color: $accentColor;
     cursor: pointer;
   }
 }
@@ -155,8 +158,8 @@ button:active {
   .inventory-control-button {
     font-size: 14px;
     color: #fff;
-    background-color: $secondaryColor;
-    transition: 200ms;
+    background: linear-gradient(45deg, $secondaryColor, $secondaryColorHighlight);
+    transition: all 0.3s ease;
     padding: 12px 8px;
     border-radius: 2.5%;
     border: none;
@@ -165,7 +168,8 @@ button:active {
     width: 100%;
     font-weight: 500;
     &:hover {
-      background-color: $secondaryColorDark;
+      background: linear-gradient(45deg, $secondaryColorHighlight, $accentColor);
+      transform: translateY(-2px);
     }
   }
 }
@@ -261,6 +265,11 @@ button:active {
   display: flex;
   flex-direction: column;
   gap: calc($gridGap * 2);
+  background: rgba(26, 27, 35, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 .inventory-grid-header-wrapper {
   display: flex;
@@ -278,6 +287,10 @@ button:active {
   grid-auto-rows: $gridSize + 0.22vh;
   gap: $gridGap;
   overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 10px;
 }
 
 // inventory slots
@@ -293,6 +306,13 @@ button:active {
   border-color: rgba(0, 0, 0, 0.2);
   border-style: inset;
   border-width: 1px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-color: $accentColor;
+  }
 }
 
 .inventory-slot-label-box {
@@ -304,6 +324,8 @@ button:active {
   border-top-color: rgba(0, 0, 0, 0.2);
   border-top-style: inset;
   border-top-width: 1px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
 }
 
 .inventory-slot-label-text {
@@ -357,6 +379,7 @@ button:active {
   gap: 3px;
   p {
     font-size: 12px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
 }
 
@@ -387,17 +410,19 @@ button:active {
 .tooltip-wrapper {
   pointer-events: none;
   display: flex;
-  background-color: $mainColor;
+  background: rgba(26, 27, 35, 0.95);
+  backdrop-filter: blur(5px);
   width: 200px;
   padding: 8px;
   flex-direction: column;
   min-width: 200px;
   color: $textColor;
   font-family: $mainFont;
-  border-radius: 4px;
+  border-radius: 8px;
   border-color: rgba(0, 0, 0, 0.2);
   border-style: inset;
   border-width: 1px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   p {
     font-size: 12px;
     font-weight: 400;
@@ -452,6 +477,10 @@ button:active {
   width: 100%;
   position: absolute;
   bottom: 2vh;
+  background: rgba(26, 27, 35, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 8px;
 }
 
 .hotbar-item-slot {
@@ -507,6 +536,11 @@ button:active {
   background: rgba(0, 0, 0, 0.5);
   height: 3px;
   overflow: hidden;
+  border-radius: 4px;
+  
+  div {
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
 }
 
 .weight-bar {
@@ -515,6 +549,11 @@ button:active {
   height: 0.8vh;
   border-radius: 5%;
   overflow: hidden;
+  border-radius: 4px;
+  
+  div {
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
 }
 
 .transition-fade-enter {
