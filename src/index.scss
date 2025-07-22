@@ -283,7 +283,6 @@ button:active {
   padding: 25px; // Increased from 20px
   box-shadow: none;
   border: none;
-  min-width: calc(#{$gridCols} * #{$gridSize} + #{$gridCols - 1} * #{$gridGap} + 50px); // Increased padding
 }
 
 .inventory-grid-header-wrapper {
@@ -321,7 +320,8 @@ button:active {
   background: transparent; // Changed from rgba(8, 9, 15, 0.6)
   backdrop-filter: none; // Changed from blur(15px)
   border-radius: 15px; // Increased border radius
-  padding: 15px; // Increased from 12px
+  padding-top: 15px;
+  padding-bottom: 15px;
   border: none; // Changed from 1px solid rgba(255, 255, 255, 0.06)
   
   &::-webkit-scrollbar {
