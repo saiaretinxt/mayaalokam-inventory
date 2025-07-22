@@ -13,12 +13,12 @@ $secondaryColorDark: #0f0f14;
 $accentColor: #4a90e2;
 $accentColorHover: #5ba0f2;
 
-// Grid Configuration - Increased sizes
+// Grid Configuration - Decreased sizes
 $gridCols: 5;
 $gridRows: 5;
-$gridSize: 14vh; // Increased from 10.2vh
-$gridGap: 4px; // Slightly increased gap
-$containerSize: calc(#{$gridRows} * #{$gridSize + 0.3vh} + #{$gridRows} * #{$gridGap}); // Adjusted calculation
+$gridSize: 10vh; // Decreased from 14vh
+$gridGap: 3px; // Decreased from 4px
+$containerSize: calc(#{$gridRows} * #{$gridSize + 0.2vh} + #{$gridRows} * #{$gridGap}); // Adjusted calculation
 
 body {
   margin: 0;
@@ -219,7 +219,7 @@ button:active {
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 15px; // Increased from 20px
+  padding: 12px; // Decreased from 15px
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 27, 35, 0.9));
 }
 
@@ -229,17 +229,17 @@ button:active {
   .inventory-control-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 25px; // Increased from 20px
+    gap: 20px; // Decreased from 25px
     justify-content: center;
     align-items: center;
   }
 
   .inventory-control-input {
     transition: 200ms;
-    padding: 20px 12px; // Increased padding
-    border-radius: 30px; // Increased border radius
+    padding: 15px 10px; // Decreased padding
+    border-radius: 25px; // Decreased border radius
     font-family: $monoFont;
-    font-size: 18px; // Increased from 16px
+    font-size: 16px; // Decreased from 18px
     font-weight: 500;
     text-align: center;
     outline: none;
@@ -247,7 +247,7 @@ button:active {
     color: #fff;
     background-color: rgba(15, 15, 20, 0.7);
     letter-spacing: 0.02em;
-    width: 60px; // Increased from 80px
+    width: 50px; // Decreased from 60px
     border: 3px solid rgba(255, 255, 255, 0.04);
     &:focus-within {
       background-color: rgba(15, 15, 20, 0.9);
@@ -255,12 +255,12 @@ button:active {
   }
 
   .inventory-control-button {
-    font-size: 16px; // Increased from 14px
+    font-size: 14px; // Decreased from 16px
     color: #fff;
     background: linear-gradient(135deg, rgba(74, 144, 226, 0.8), rgba(90, 160, 242, 0.9));
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 16px 20px; // Increased padding
-    border-radius: 10px; // Increased border radius
+    padding: 12px 16px; // Decreased padding
+    border-radius: 8px; // Decreased border radius
     border: none;
     text-transform: uppercase;
     font-family: $headingFont;
@@ -336,18 +336,18 @@ button:active {
 
 .useful-controls-button {
   position: absolute !important;
-  bottom: 35px; // Increased from 25px
-  right: 35px; // Increased from 25px
+  bottom: 25px; // Decreased from 35px
+  right: 25px; // Decreased from 35px
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   border: none;
   color: white;
-  width: 62px; // Increased from 52px
-  height: 62px; // Increased from 52px
+  width: 50px; // Decreased from 62px
+  height: 50px; // Decreased from 62px
   display: flex;
   justify-content: center;
   align-items: center;
   fill: white;
-  border-radius: 15px !important; // Increased border radius
+  border-radius: 12px !important; // Decreased border radius
   background: linear-gradient(135deg, rgba(74, 144, 226, 0.8), rgba(90, 160, 242, 0.9)) !important;
   box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
   
@@ -363,11 +363,11 @@ button:active {
 .inventory-grid-wrapper {
   display: flex;
   flex-direction: column;
-  gap: calc($gridGap * 4); // Increased multiplier
+  gap: calc($gridGap * 3); // Decreased multiplier
   background: transparent;
   backdrop-filter: none;
-  border-radius: 20px; // Increased border radius
-  padding: 25px; // Increased from 20px
+  border-radius: 16px; // Decreased from 20px
+  padding: 20px; // Decreased from 25px
   box-shadow: none;
   border: none;
 }
@@ -377,11 +377,11 @@ button:active {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px; // Increased from 8px
+  margin-bottom: 8px; // Decreased from 12px
   background: transparent;
   
   p {
-    font-size: 22px; // Increased from 18px
+    font-size: 18px; // Decreased from 22px
     font-family: $headingFont;
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -400,29 +400,29 @@ button:active {
   display: grid;
   height: $containerSize;
   grid-template-columns: repeat($gridCols, $gridSize);
-  grid-auto-rows: calc($gridSize + 0.3vh); // Adjusted
+  grid-auto-rows: calc($gridSize + 0.2vh); // Adjusted
   gap: $gridGap;
   overflow-y: auto;
   overflow-x: hidden;
   background: transparent; // Changed from rgba(8, 9, 15, 0.6)
   backdrop-filter: none; // Changed from blur(15px)
-  border-radius: 15px; // Increased border radius
-  padding-top: 15px;
-  padding-bottom: 15px;
+  border-radius: 12px; // Decreased border radius
+  padding-top: 12px;
+  padding-bottom: 12px;
   border: none; // Changed from 1px solid rgba(255, 255, 255, 0.06)
   
   &::-webkit-scrollbar {
-    width: 8px; // Increased from 6px
+    width: 6px; // Decreased from 8px
   }
   
   &::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px; // Increased from 3px
+    border-radius: 3px; // Decreased from 4px
   }
   
   &::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px; // Increased from 3px
+    border-radius: 3px; // Decreased from 4px
     
     &:hover {
       background: rgba(255, 255, 255, 0.3);
@@ -433,30 +433,30 @@ button:active {
 // Inventory Slots
 .inventory-slot {
   background: linear-gradient(135deg, rgba(25, 26, 34, 0.4), rgba(15, 16, 22, 0.5));
-  padding: 5px;
+  padding: 4px; // Decreased from 5px
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 12px; // Increased from 8px
+  border-radius: 10px; // Decreased from 12px
   image-rendering: -webkit-optimize-contrast;
   position: relative;
-  background-size: 8vh; // Increased from 7vh
+  background-size: 6vh; // Decreased from 8vh
   color: $textColor;
-  border: 3px solid rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(255, 255, 255, 0.04); // Decreased from 3px
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   
   &:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4),
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4),
                 0 0 0 1px rgba(74, 144, 226, 0.3);
     border-color: rgba(74, 144, 226, 0.5);
     background: linear-gradient(135deg, rgba(30, 31, 39, 0.6), rgba(20, 21, 27, 0.7));
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 11vh; // Slightly larger on hover
+    background-size: 8vh; // Slightly larger on hover
   }
   
   &:active {
-    background-size: 10.5vh; // Smaller scale on active
+    background-size: 7vh; // Smaller scale on active
   }
 }
 
@@ -467,8 +467,8 @@ button:active {
   right: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(30, 31, 41, 0.8));
   backdrop-filter: none;
-  border-bottom-left-radius: 12px; // Increased from 8px
-  border-bottom-right-radius: 12px; // Increased from 8px
+  border-bottom-left-radius: 10px; // Decreased from 12px
+  border-bottom-right-radius: 10px; // Decreased from 12px
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -477,10 +477,10 @@ button:active {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 8px 10px; // Increased padding
+  padding: 6px 8px; // Decreased padding
   font-weight: 500;
   font-family: $primaryFont;
-  font-size: 13px; // Increased from 11px
+  font-size: 11px; // Decreased from 13px
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -544,19 +544,19 @@ button:active {
 // Inventory slot number styling
 .inventory-slot-number {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 6px; // Decreased from 8px
+  left: 6px; // Decreased from 8px
   background: linear-gradient(135deg, rgba(74, 144, 226, 0.9), rgba(90, 160, 242, 0.8));
   color: #ffffff;
-  border-radius: 8px;
-  padding: 4px 8px;
-  font-size: 12px;
+  border-radius: 6px; // Decreased from 8px
+  padding: 3px 6px; // Decreased from 4px 8px
+  font-size: 10px; // Decreased from 12px
   font-weight: 600;
   font-family: $monoFont;
-  min-width: 10px;
+  min-width: 8px; // Decreased from 10px
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); // Decreased shadow
   backdrop-filter: none;
   letter-spacing: 0.02em;
 }
@@ -599,19 +599,19 @@ button:active {
 .hotbar-container {
   display: flex;
   align-items: center;
-  gap: 6px; // Increased from 4px
+  gap: 5px; // Decreased from 6px
   justify-content: center;
   width: auto;
   position: absolute;
-  bottom: 4vh; // Increased from 3vh
+  bottom: 3vh; // Decreased from 4vh
   left: 50%;
   transform: translateX(-50%);
   background: rgba(20, 21, 29, 0.95);
   backdrop-filter: none;
-  border-radius: 15px; // Increased from 12px
-  padding: 15px; // Increased from 12px
+  border-radius: 12px; // Decreased from 15px
+  padding: 12px; // Decreased from 15px
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4); // Decreased shadow
 }
 
 .hotbar-item-slot {
@@ -622,11 +622,11 @@ button:active {
   .inventory-slot-number {
     background: linear-gradient(135deg, rgba(74, 144, 226, 1), rgba(90, 160, 242, 0.9));
     border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 3px 12px rgba(74, 144, 226, 0.4);
-    font-size: 13px;
+    box-shadow: 0 3px 10px rgba(74, 144, 226, 0.4); // Decreased shadow
+    font-size: 11px; // Decreased from 13px
     font-weight: 700;
-    padding: 5px 9px;
-    min-width: 24px;
+    padding: 4px 7px; // Decreased from 5px 9px
+    min-width: 20px; // Decreased from 24px
     animation: hotbarNumberPulse 2s ease-in-out infinite;
   }
 }
@@ -634,10 +634,10 @@ button:active {
 // Hotbar number animation
 @keyframes hotbarNumberPulse {
   0%, 100% {
-    box-shadow: 0 3px 12px rgba(74, 144, 226, 0.4);
+    box-shadow: 0 3px 10px rgba(74, 144, 226, 0.4);
   }
   50% {
-    box-shadow: 0 4px 16px rgba(74, 144, 226, 0.6);
+    box-shadow: 0 4px 14px rgba(74, 144, 226, 0.6);
   }
 }
 
