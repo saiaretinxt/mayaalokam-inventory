@@ -319,11 +319,11 @@ button:active {
   gap: $gridGap;
   overflow-y: auto;
   overflow-x: hidden;
-  background: rgba(8, 9, 15, 0.6);
-  backdrop-filter: blur(15px);
+  background: transparent; // Changed from rgba(8, 9, 15, 0.6)
+  backdrop-filter: none; // Changed from blur(15px)
   border-radius: 15px; // Increased border radius
   padding: 15px; // Increased from 12px
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: none; // Changed from 1px solid rgba(255, 255, 255, 0.06)
   
   &::-webkit-scrollbar {
     width: 8px; // Increased from 6px
@@ -352,9 +352,9 @@ button:active {
   border-radius: 12px; // Increased from 8px
   image-rendering: -webkit-optimize-contrast;
   position: relative;
-  background-size: 10vh; // Increased from 7vh
+  background-size: 8vh; // Increased from 7vh
   color: $textColor;
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border: 3px solid rgba(255, 255, 255, 0.04);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   
