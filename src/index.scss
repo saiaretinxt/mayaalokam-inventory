@@ -68,8 +68,7 @@ input[type='number']::-webkit-outer-spin-button {
 .context-menu-list {
   min-width: 220px;
   background: linear-gradient(145deg, rgba(25, 26, 34, 0.98), rgba(15, 16, 22, 0.98));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: none;
   color: $textColor;
   padding: 12px 8px;
   border: 1px solid rgba(74, 144, 226, 0.3);
