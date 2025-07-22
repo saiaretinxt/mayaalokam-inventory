@@ -347,6 +347,7 @@ button:active {
 // Inventory Slots
 .inventory-slot {
   background: linear-gradient(135deg, rgba(25, 26, 34, 0.4), rgba(15, 16, 22, 0.5));
+  padding: 5px;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 12px; // Increased from 8px
@@ -398,43 +399,87 @@ button:active {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.inventory-slot-number {
-  background: linear-gradient(135deg, $accentColor, $accentColorHover);
-  color: white;
-  height: 20px; // Increased from 16px
-  width: 20px; // Increased from 16px
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px; // Increased from 4px
-  font-size: 13px; // Increased from 11px
-  font-family: $monoFont;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
-}
+// Durability Bar
+.durability-bar {
+  width: 100%; // Slightly smaller to fit within label box
+  height: 2px; // Slightly smaller than weight bar
+  background-color: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
 
-.item-slot-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  p {
-    font-size: 14px; // Increased from 12px
+  
+  div {
+    height: 100%;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
-.item-slot-info-wrapper {
+// Weight and Durability Bars
+.weight-bar {
+  width: 100%;
+  height: 4px; // Increased from 3px
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px; // Increased from 6px
+  
+  div {
+    height: 100%;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+// Item slot styling updates
+.item-slot-header-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding: 8px; // Increased from 6px
-  gap: 3px; // Increased from 2px
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.item-hotslot-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.hotbar-slot-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.item-slot-currency-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  margin-top: 4px;
   
   p {
-    font-size: 13px; // Increased from 11px
+    font-size: 12px;
     font-weight: 500;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    color: rgba(255, 255, 255, 0.9);
+    color: #ffffff;
+  }
+}
+
+.item-slot-price-wrapper {
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  margin-top: 4px;
+  
+  p {
+    font-size: 12px;
+    font-weight: 600;
   }
 }
 
